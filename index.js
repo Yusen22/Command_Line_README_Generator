@@ -11,7 +11,7 @@ const questions = [
         name: "title",
         validate: (value) => {
             if (value.length < 3){
-                console.log("\nPlease enter a minimum of 3 characters for your project title.")
+                console.log("\nPlease enter a minimum of 3 characters for your project title.");
             } else {
                 return true
             }
@@ -23,7 +23,7 @@ const questions = [
         name: "description",
         validate: (value) => {
             if (value.length < 10){
-                console.log("\nPlease enter a minimum of 10 characters for your description.")
+                console.log("\nPlease enter a minimum of 10 characters for your description.");
             } else {
                 return true
             }
@@ -34,8 +34,8 @@ const questions = [
         message: "How should the application be installed?",
         name: "install",
         validate: (value) => {
-            if (value.length < 10 && value !== 'N/A', 'n/a', 'N/A'){
-                console.log("\nPlease enter a minimum of 3 characters or type 'N/A' to continue.")
+            if (value.length < 3 && toUpperCase(value) !== 'N/A'){
+                console.log("\nPlease enter a minimum of 3 characters or type 'N/A' to continue.");
             } else {
                 return true
             }
@@ -46,8 +46,8 @@ const questions = [
         message: "Provide instructions on how the user should use the application.",
         name: "usage",
         validate: (value) => {
-            if (value.length < 10 && value !== 'N/A', 'n/a', 'N/A'){
-                console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.")
+            if (value.length < 10 && toUpperCase(value) !== 'N/A'){
+                console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
             } else {
                 return true
             }
@@ -58,8 +58,8 @@ const questions = [
         message: "List contributors to the project.",
         name: "contributors",
         validate: (value) => {
-            if (value.length < 3 && value !== 'N/A', 'n/a', 'N/A'){
-                console.log("\nPlease enter a minimum of 3 characters or type 'N/A' to continue.")
+            if (value.length < 3 && toUpperCase(value) !== 'N/A'){
+                console.log("\nPlease enter a minimum of 3 characters or type 'N/A' to continue.");
             } else {
                 return true
             }
@@ -70,8 +70,8 @@ const questions = [
         message: "Detail any tests that have been carried out on the application.",
         name: "contributors",
         validate: (value) => {
-            if (value.length < 10 && value !== 'N/A', 'n/a', 'N/A'){
-                console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.")
+            if (value.length < 10 && toUpperCase(value) !== 'N/A'){
+                console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
             } else {
                 return true
             }
@@ -82,8 +82,8 @@ const questions = [
         message: "List any questions that have been asked of the project",
         name: "contributors",
         validate: (value) => {
-            if (value.length < 10 && value !== 'N/A', 'n/a', 'N/A'){
-                console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.")
+            if (value.length < 10 && toUpperCase(value) !== 'N/A'){
+                console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
             } else {
                 return true
             }
