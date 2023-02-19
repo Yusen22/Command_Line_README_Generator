@@ -6,7 +6,8 @@ licence
 // function to generate markdown for README
 function generateMarkdown(answers) {
   return `# ${answers.title}\n
-## ${answers.description}\n
+## Description 
+${answers.description}\n
 ##Table of Contents\n
 - [Installation](#installation)
 - [Usage](#usage)
