@@ -10,8 +10,8 @@ const questions = [
         message: "Enter a title for the project",
         name: "title",
         validate: (value) => {
-            if (value.length < 3 && value !== 'N/A') {
-                console.error("\nPlease enter a minimum of three characters")
+            if (value.length < 3){
+                console.log("\nPlease enter a minimum of 3 characters for your project title.")
             } else {
                 return true
             }
@@ -20,21 +20,78 @@ const questions = [
     {
         type: "input",
         message: "Provide a brief description of the project",
-        name: "description"
+        name: "description",
+        validate: (value) => {
+            if (value.length < 10){
+                console.log("\nPlease enter a minimum of 10 characters for your description.")
+            } else {
+                return true
+            }
+        }
     },
     {
         type: "input",
         message: "How should the application be installed?",
-        name: "install"
+        name: "install",
+        validate: (value) => {
+            if (value.length < 10 && value !== 'N/A', 'n/a', 'N/A'){
+                console.log("\nPlease enter a minimum of 3 characters or type 'N/A' to continue.")
+            } else {
+                return true
+            }
+        }
     },
     {
         type: "input",
         message: "Provide instructions on how the user should use the application.",
-        name: "usage"
+        name: "usage",
+        validate: (value) => {
+            if (value.length < 10 && value !== 'N/A', 'n/a', 'N/A'){
+                console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.")
+            } else {
+                return true
+            }
+        }
+    },
+    {
+        type: "input",
+        message: "List contributors to the project.",
+        name: "contributors",
+        validate: (value) => {
+            if (value.length < 3 && value !== 'N/A', 'n/a', 'N/A'){
+                console.log("\nPlease enter a minimum of 3 characters or type 'N/A' to continue.")
+            } else {
+                return true
+            }
+        }
+    },
+    {
+        type: "input",
+        message: "Detail any tests that have been carried out on the application.",
+        name: "contributors",
+        validate: (value) => {
+            if (value.length < 10 && value !== 'N/A', 'n/a', 'N/A'){
+                console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.")
+            } else {
+                return true
+            }
+        }
+    },
+    {
+        type: "input",
+        message: "List any questions that have been asked of the project",
+        name: "contributors",
+        validate: (value) => {
+            if (value.length < 10 && value !== 'N/A', 'n/a', 'N/A'){
+                console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.")
+            } else {
+                return true
+            }
+        }
     },
     {
         type: "list",
-        message: "Select a licence for this project",
+        message: "Select a licence for this project.",
         choices: [
             'Apache license 2.0',
             'BSD 2-clause "Simplified" license',
@@ -48,11 +105,6 @@ const questions = [
             'The Unlicense',
         ],
         name: 'licence'
-    },
-    {
-        type: "input",
-        message: "List contributors to the project",
-        name: "contributors"
     },
 
 ]
@@ -73,7 +125,7 @@ function writeToFile(fileName, data) {
 // function to initialize program
 
 function init() {
-    console.log("Welcome to the professional README generator!\n\nPlease complete the questions below to generate your README.\n\nNOTE: Pressing enter on a question without inputting a value will give an answer of 'N/A'.\n")
+    console.log("Welcome to the professional README generator!\n\nPlease complete the questions below to generate your README.\n\nNOTE: Enter 'N/A' on a question if the section is not relevant to your project.\n")
     inquirer
         .prompt(questions)
         .then((answers) => {
