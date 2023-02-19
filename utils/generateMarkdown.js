@@ -1,7 +1,12 @@
+const generateLicenceBadge = (licence) => {
+licence
+}
+
+
 // function to generate markdown for README
-function generateMarkdown(questions) {
-  return `# ${questions.title}\n
-          ## ${questions.description}\n
+function generateMarkdown(answers) {
+  return `# ${answers.title}\n
+          ## ${answers.description}\n
           ##Table of Contents\n
           - [Installation](#installation)
           - [Usage](#usage)
@@ -10,19 +15,21 @@ function generateMarkdown(questions) {
           - [Questions](#questions)
           - [Licence](#licence)\n
           ## Installation\n 
-          ${questions.installation}\n
+          ${answers.installation}\n
           ## Usage 
-          ${questions.usage}\n
+          ${answers.usage}\n
           ## Contributors
-          ${questions.contributors}\n
+          ${answers.contributors}\n
           ## Tests
-          ${questions.tests}\n
-          ## Questions
-          ${questions.questions}\n
+          ${answers.tests}\n
+          ## answers
+          ${answers.answers}\n
           ## Licence
-          ${questions.licence}\n
+          ${answers.licence}\n
 
 `;
 }
+
+console.log
 
 module.exports = generateMarkdown;

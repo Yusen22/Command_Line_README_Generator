@@ -80,7 +80,7 @@ const questions = [
 // function to write README file
 
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, err => err ? console.error(err) : console.log("Commit logged!"));
+    fs.writeFile(fileName, data, err => err ? console.error(err) : console.log("Successfully written!"));
 
     console.log(fileName);
     console.log(data);
@@ -94,7 +94,7 @@ function init() {
         .prompt(questions)
         .then((answers) => {
             console.log(answers);
-            writeToFile('README.md', generateMarkdown(data))
+            writeToFile('README.md', generateMarkdown(answers))
         }
         )
 }
