@@ -9,6 +9,13 @@ const questions = [
         type: "input",
         message: "Enter a title for the project",
         name: "title",
+        validate: (value) => {
+            if (value.length < 3 && value !== 'N/A') {
+                console.error("\nPlease enter a minimum of three characters")
+            } else {
+                return true
+            }
+        }
     },
     {
         type: "input",
@@ -90,6 +97,7 @@ function writeToFile(fileName, data) {
 // function to initialize program
 
 function init() {
+    console.log("Welcome to the professional README generator!\n\nPlease complete the questions below to generate your README.\n\nNOTE: Pressing enter on a question without inputting a value will give an answer of 'N/A'.\n")
     inquirer
         .prompt(questions)
         .then((answers) => {
