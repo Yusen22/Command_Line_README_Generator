@@ -45,7 +45,7 @@ ${answers.description}\n
 ${answers.installation}\n
 ## Usage\n
 ${answers.usage}\n
-## Contributors
+## Contributors\n
 ${answers.contributors}\n
 ## Tests\n
 ${answers.tests}\n

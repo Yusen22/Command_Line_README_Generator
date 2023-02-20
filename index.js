@@ -68,7 +68,7 @@ const questions = [
     {
         type: "input",
         message: "Detail any tests that have been carried out on the application.",
-        name: "contributors",
+        name: "tests",
         validate: (value) => {
             if (value.length < 10 && toUpperCase(value) !== 'N/A'){
                 console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
@@ -80,7 +80,7 @@ const questions = [
     {
         type: "input",
         message: "List any questions that have been asked of the project",
-        name: "contributors",
+        name: "questions",
         validate: (value) => {
             if (value.length < 10 && toUpperCase(value) !== 'N/A'){
                 console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
