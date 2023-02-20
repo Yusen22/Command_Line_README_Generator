@@ -46,8 +46,9 @@ const questions = [
         message: "Provide instructions on how the user should use the application.",
         name: "usage",
         validate: (value) => {
-            if (value.length < 10 && toUpperCase(value) !== 'N/A'){
+            if (value.length < 3 && toUpperCase(value) !== 'N/A'){
                 console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
+                return 'N/A'
             } else {
                 return true
             }
@@ -70,7 +71,7 @@ const questions = [
         message: "Detail any tests that have been carried out on the application.",
         name: "tests",
         validate: (value) => {
-            if (value.length < 10 && toUpperCase(value) !== 'N/A'){
+            if (value.length < 3 && toUpperCase(value) !== 'N/A'){
                 console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
             } else {
                 return true
@@ -82,7 +83,7 @@ const questions = [
         message: "List any questions that have been asked of the project",
         name: "questions",
         validate: (value) => {
-            if (value.length < 10 && toUpperCase(value) !== 'N/A'){
+            if (value.length < 3 && toUpperCase(value) !== 'N/A'){
                 console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
             } else {
                 return true
