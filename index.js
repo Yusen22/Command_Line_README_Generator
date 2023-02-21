@@ -61,25 +61,22 @@ const questions = [
     {
         type: "input",
         message: "Please enter the filepath of the screenshot you want to include (ensure the file is in the current working directory)",
-        name: "install",
+        name: "shotpath",
         when: (answers) => {
             if (answers.screenshot === true) {
                 return true;
             }
         },
-        validate: (value) => {
-            if (value === "") {
-                console.log("\nPlease enter a value (min. 10 characters) or 'N/A' to continue")
-            }
-            else if (value.toUpperCase() === 'N/A') {
-                return true
-            }
-            else if (value.length < 10) {
-                console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
-            } else {
-                return true
-            }
-        }
+        // validate: (value) => {
+        //     if (value === "") {
+        //         console.log("\nPlease enter a value (min. 10 characters) or 'N/A' to continue")
+        //     }
+        //     else if (value.length < 10) {
+        //         console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
+        //     } else {
+        //         return true
+        //     }
+        // }
     },
 
     {
@@ -139,17 +136,35 @@ const questions = [
     },
     {
         type: "input",
-        message: "List any questions that have been asked of the project",
-        name: "questions",
+        message: "What is your Github username?",
+        name: "github",
         validate: (value) => {
             if (value === "") {
-                console.log("\nPlease enter a value (min. 10 characters) or 'N/A' to continue")
+                console.log("\nPlease enter a value (min. 3 characters) or 'N/A' to continue")
             }
             else if (value.toUpperCase() === 'N/A') {
                 return true
             }
-            else if (value.length < 10) {
-                console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
+            else if (value.length < 3) {
+                console.log("\nPlease enter a minimum of 3 characters or type 'N/A' to continue.");
+            } else {
+                return true
+            }
+        }
+    },
+    {
+        type: "input",
+        message: "What is your email address?",
+        name: "email",
+        validate: (value) => {
+            if (value === "") {
+                console.log("\nPlease enter a value (min. 3 characters) or 'N/A' to continue")
+            }
+            else if (value.toUpperCase() === 'N/A') {
+                return true
+            }
+            else if (value.length < 3) {
+                console.log("\nPlease enter a minimum of 3 characters or type 'N/A' to continue.");
             } else {
                 return true
             }

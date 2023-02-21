@@ -1,6 +1,14 @@
+const generateScreenshotLink = (link) => {
+  if(link) {
+    return `![Screenshot](${link})`
+  } else {
+    return ""
+  }
+}
 
 
 
+// A function for generating a licence badge 
 const generateLicenceBadge = (licence) => {
 
   let licenceLink
@@ -32,6 +40,7 @@ function generateMarkdown(answers) {
  
 
   return `# ${answers.title}\n
+  ${generateLicenceBadge(answers.licence)}\n
 ## Description 
 ${answers.description}\n
 ## Table of Contents\n
@@ -45,14 +54,17 @@ ${answers.description}\n
 ${answers.install}\n
 ## Usage\n
 ${answers.usage}\n
+${generateScreenshotLink(answers.shotpath)}
 ## Contributors\n
 ${answers.contributors}\n
 ## Tests\n
 ${answers.tests}\n
 ## Questions\n
-${answers.questions}\n
+Github: https://github.com/${answers.github}\n
+Email: ${answers.email}\n
+Any questions on this project can be directed to the above email address or Github account.\n
 ## Licence\n
-${generateLicenceBadge(answers.licence)}\n`;
+${answers.licence}\n`;
 }
 
 
