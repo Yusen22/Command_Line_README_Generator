@@ -20,6 +20,8 @@ Ensure you are in the same directory as the 'index.js' file of the application. 
 
 ## Usage
 
+Walkthrough Video: https://drive.google.com/file/d/1GcLZk70O2OncadTCKPWTJ_WeAc4b60rs/view
+
 To begin using the application, confirm the working directory contains the relevant 'index.js' file, and type 'node index.js' into the command line. The user will then be prompted with a number of questions by which the README will be generated. 
 
 There are specific character limits and validations for each question, which can be shown by pressing enter with no value inputted on a question. A project title and description must be inputted, but the user can enter 'n/a' in sections which are not relevant. The exception to this occurs when the user is prompted to confirm if they require a screenshot. Please enter 'y' or 'n' to confirm or deny the request. 
@@ -27,6 +29,8 @@ There are specific character limits and validations for each question, which can
 Further, the user must select a licence for the project from the provided list to generate the README. 
 
 ![Screenshot](./README_Generator.png)
+
+
 
 ## Credits
 
