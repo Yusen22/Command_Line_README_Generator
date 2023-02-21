@@ -60,8 +60,7 @@ ${answers.contributors}\n
 ## Tests\n
 ${answers.tests}\n
 ## Questions\n
-Github: https://github.com/${answers.github}\n
-Email: ${answers.email}\n
+Github: https://github.com/${answers.github}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: ${answers.email}\n
 Any questions on this project can be directed to the above email address or Github account.\n
 ## Licence\n
 ${answers.licence}\n`;

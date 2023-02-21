@@ -1,5 +1,4 @@
 const fs = require("fs");
-const path = require('path');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
@@ -60,23 +59,20 @@ const questions = [
     },
     {
         type: "input",
-        message: "Please enter the filepath of the screenshot you want to include (ensure the file is in the current working directory)",
+        message: "Please enter the filepath of the screenshot you want to include (ensure the filepath is correct before entering)",
         name: "shotpath",
         when: (answers) => {
             if (answers.screenshot === true) {
                 return true;
             }
         },
-        // validate: (value) => {
-        //     if (value === "") {
-        //         console.log("\nPlease enter a value (min. 10 characters) or 'N/A' to continue")
-        //     }
-        //     else if (value.length < 10) {
-        //         console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
-        //     } else {
-        //         return true
-        //     }
-        // }
+        validate: (value) => {
+            if (value === "") {
+                console.log("\nPlease enter a value to continue")
+            } else {
+                return true
+            }
+        }
     },
 
     {
@@ -118,7 +114,7 @@ const questions = [
     },
     {
         type: "input",
-        message: "Detail any tests that have been carried out on the application.",
+        message: "Instruct the user on how to test the application.",
         name: "tests",
         validate: (value) => {
             if (value === "") {
