@@ -54,8 +54,8 @@ ${answers.description}\n
 ${answers.install}\n
 ## Usage\n
 ${answers.usage}\n
-${generateScreenshotLink(answers.shotpath)}
-## Contributors\n
+${generateScreenshotLink(answers.shotpath)}\n
+## Credits\n
 ${answers.contributors}\n
 ## Tests\n
 ${answers.tests}\n
