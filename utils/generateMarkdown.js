@@ -42,7 +42,7 @@ ${answers.description}\n
 - [Questions](#questions)
 - [Licence](#licence)\n
 ## Installation\n 
-${answers.installation}\n
+${answers.install}\n
 ## Usage\n
 ${answers.usage}\n
 ## Contributors\n

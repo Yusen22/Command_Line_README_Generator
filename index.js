@@ -10,7 +10,10 @@ const questions = [
         message: "Enter a title for the project",
         name: "title",
         validate: (value) => {
-            if (value.length < 3){
+            if (value === "") {
+                console.log("\nYou must have a project title (min. 3 characters)")
+            }
+            else if (value.length < 3) {
                 console.log("\nPlease enter a minimum of 3 characters for your project title.");
             } else {
                 return true
@@ -22,7 +25,10 @@ const questions = [
         message: "Provide a brief description of the project",
         name: "description",
         validate: (value) => {
-            if (value.length < 10){
+            if (value === "") {
+                console.log("\nYou must have a project description (min. 10 characters)")
+            }
+            else if (value.length < 10) {
                 console.log("\nPlease enter a minimum of 10 characters for your description.");
             } else {
                 return true
@@ -31,24 +37,64 @@ const questions = [
     },
     {
         type: "input",
-        message: "How should the application be installed?",
+        message: "Instruct the user how to install the application",
         name: "install",
         validate: (value) => {
-            if (value.length < 3 && toUpperCase(value) !== 'N/A'){
-                console.log("\nPlease enter a minimum of 3 characters or type 'N/A' to continue.");
+            if (value === "") {
+                console.log("\nPlease enter a value (min. 10 characters) or 'N/A' to continue")
+            }
+            else if (value.toUpperCase() === 'N/A') {
+                return true
+            }
+            else if (value.length < 10) {
+                console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
             } else {
                 return true
             }
         }
     },
     {
+        type: "confirm",
+        message: "Do you want to add an screenshot of the application to the description?",
+        name: "screenshot",
+    },
+    {
         type: "input",
-        message: "Provide instructions on how the user should use the application.",
+        message: "Please enter the filepath of the screenshot you want to include (ensure the file is in the current working directory)",
+        name: "install",
+        when: (answers) => {
+            if (answers.screenshot === true) {
+                return true;
+            }
+        },
+        validate: (value) => {
+            if (value === "") {
+                console.log("\nPlease enter a value (min. 10 characters) or 'N/A' to continue")
+            }
+            else if (value.toUpperCase() === 'N/A') {
+                return true
+            }
+            else if (value.length < 10) {
+                console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
+            } else {
+                return true
+            }
+        }
+    },
+
+    {
+        type: "input",
+        message: "Instruct the user on how to use the application.",
         name: "usage",
         validate: (value) => {
-            if (value.length < 3 && toUpperCase(value) !== 'N/A'){
+            if (value === "") {
+                console.log("\nPlease enter a value (min. 10 characters) or 'N/A' to continue")
+            }
+            else if (value.toUpperCase() === 'N/A') {
+                return true
+            }
+            else if (value.length < 10) {
                 console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
-                return 'N/A'
             } else {
                 return true
             }
@@ -59,19 +105,32 @@ const questions = [
         message: "List contributors to the project.",
         name: "contributors",
         validate: (value) => {
-            if (value.length < 3 && toUpperCase(value) !== 'N/A'){
+            if (value === "") {
+                console.log("\nPlease enter a value (min. 3 characters) or 'N/A' to continue")
+            }
+            else if (value.toUpperCase() === 'N/A') {
+                return true
+            }
+            else if (value.length < 3) {
                 console.log("\nPlease enter a minimum of 3 characters or type 'N/A' to continue.");
             } else {
                 return true
             }
         }
+
     },
     {
         type: "input",
         message: "Detail any tests that have been carried out on the application.",
         name: "tests",
         validate: (value) => {
-            if (value.length < 3 && toUpperCase(value) !== 'N/A'){
+            if (value === "") {
+                console.log("\nPlease enter a value (min. 10 characters) or 'N/A' to continue")
+            }
+            else if (value.toUpperCase() === 'N/A') {
+                return true
+            }
+            else if (value.length < 10) {
                 console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
             } else {
                 return true
@@ -83,7 +142,13 @@ const questions = [
         message: "List any questions that have been asked of the project",
         name: "questions",
         validate: (value) => {
-            if (value.length < 3 && toUpperCase(value) !== 'N/A'){
+            if (value === "") {
+                console.log("\nPlease enter a value (min. 10 characters) or 'N/A' to continue")
+            }
+            else if (value.toUpperCase() === 'N/A') {
+                return true
+            }
+            else if (value.length < 10) {
                 console.log("\nPlease enter a minimum of 10 characters or type 'N/A' to continue.");
             } else {
                 return true
@@ -116,7 +181,7 @@ const questions = [
 // function to write README file
 
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, err => err ? console.error(err) : console.log("Successfully written!"));
+    fs.writeFile(fileName, data, err => err ? console.error(err) : console.log("README successfully written to the current working directory!"));
 
     console.log(fileName);
     console.log(data);
@@ -132,8 +197,7 @@ function init() {
         .then((answers) => {
             console.log(answers);
             writeToFile('README.md', generateMarkdown(answers))
-        }
-        )
+        })
 }
 
 // function call to initialize program
