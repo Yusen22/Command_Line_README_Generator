@@ -3,7 +3,7 @@
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description 
-An application that generates a professional README for a project repository 
+An application that generates a professional README for a project repository from a Command Line Interface 
 
 ## Table of Contents
 
